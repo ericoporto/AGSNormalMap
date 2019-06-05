@@ -8,16 +8,16 @@ CFLAGS = -fPIC -fvisibility=hidden -O2 -g -Wall
 LIBS = -lm -lstdc++
 
 ifeq ($(UNAME), Darwin)
-TARGET = libagsflashlight.dylib
+TARGET = libagsnormalmap.dylib
 CFLAGS += -DMAC_VERSION
 else
-TARGET = libagsflashlight.so
+TARGET = libagsnormalmap.so
 CFLAGS += -DLINUX_VERSION
 endif
 
 CXXFLAGS = $(CFLAGS)
 
-include Makefile-objs
+#include Makefile-objs
 
 
 CFLAGS   := $(addprefix -I,$(INCDIR)) $(CFLAGS)
