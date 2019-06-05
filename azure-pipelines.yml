@@ -6,11 +6,36 @@
 trigger:
 - master
 
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-16.04'
+    mac:
+      imageName: 'macos-10.13'
+    windows:
+      imageName: 'vs2017-win2016'
+
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: $(imageName)
 
 steps:
-- script: |
+# Linux
+- bash: |
     cd NormalMap
     make
+  condition: eq( variables['Agent.OS'], 'Linux' )
   displayName: 'make'
+# macOS
+- bash: |
+    cd NormalMap
+    make
+  condition: eq( variables['Agent.OS'], 'Darwin' )
+  displayName: 'make'
+# Windows
+- task: VSBuild@1
+  condition: eq( variables['Agent.OS'], 'Windows_NT' )
+  inputs:
+    solution: 'NormalMap\vc2008\AGSNormalMap.sln' 
+    platform: win32
+    configuration: Release
+    
