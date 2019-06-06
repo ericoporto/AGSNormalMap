@@ -61,8 +61,8 @@ steps:
 - task: CopyFiles@2
   condition: eq( variables['Agent.OS'], 'Windows_NT' )   
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: '**/$(BuildConfiguration)/**/?(AGSNormalMap.dll)'
+    sourceFolder: '$(Build.SourcesDirectory)/NormalMap/vs2017/Release'
+    contents: 'AGSNormalMap.dll'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - bash: |
