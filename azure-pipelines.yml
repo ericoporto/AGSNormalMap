@@ -31,6 +31,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)/NormalMap'
     contents: 'libagsnormalmap.so'
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
 # macOS
 - bash: |
@@ -44,6 +45,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)/NormalMap'
     contents: 'libagsnormalmap.dylib'
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
 # Windows
 - task: VSBuild@1
@@ -58,6 +60,7 @@ steps:
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
     contents: '**/$(BuildConfiguration)/**/?(AGSNormalMap.dll)'
+    targetFolder: $(Build.ArtifactStagingDirectory)
 
 # Upload to Github Release
 - task: GithubRelease@0 
