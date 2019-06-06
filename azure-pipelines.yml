@@ -54,7 +54,7 @@ steps:
 - task: VSBuild@1
   condition: eq( variables['Agent.OS'], 'Windows_NT' )
   inputs:
-    solution: 'NormalMap\vc2008\AGSNormalMap.sln' 
+    solution: 'NormalMap\vs2017\AGSNormalMap.sln' 
     platform: win32
     configuration: Release
 
