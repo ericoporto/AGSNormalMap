@@ -29,8 +29,8 @@ steps:
 - task: CopyFiles@2
   condition: eq( variables['Agent.OS'], 'Linux' )
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: '**/$(BuildConfiguration)/**/?(libagsnormalmap.so)'
+    sourceFolder: '$(Build.SourcesDirectory)/NormalMap'
+    contents: 'libagsnormalmap.so'
 
 # macOS
 - bash: |
@@ -40,10 +40,10 @@ steps:
   displayName: 'make'
 
 - task: CopyFiles@2
-  condition: eq( variables['Agent.OS'], 'Linux' )
+  condition: eq( variables['Agent.OS'], 'Darwin' )
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: '**/$(BuildConfiguration)/**/?(libagsnormalmap.dylib)'
+    sourceFolder: '$(Build.SourcesDirectory)/NormalMap'
+    contents: 'libagsnormalmap.dylib'
 
 # Windows
 - task: VSBuild@1
