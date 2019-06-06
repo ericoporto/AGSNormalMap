@@ -66,6 +66,7 @@ steps:
 - task: GithubRelease@0 
   displayName: 'Create GitHub Release'  
   inputs:
+    tagSource: 'Git tag'
     gitHubConnection: agsnormalmaps
     repositoryName: ericoporto/AGSNormalMap           
     assets: |
