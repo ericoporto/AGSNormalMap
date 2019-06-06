@@ -74,6 +74,7 @@ steps:
   inputs:
     tagSource: 'auto'
     tag: $(tagname)
+    assetUploadMode: 'replace' 
     action: 'edit' 
     gitHubConnection: agsnormalmaps
     repositoryName: ericoporto/AGSNormalMap           
