@@ -1,1 +1,1 @@
-OBJS = strangeland.o
+OBJS = normalmap.o

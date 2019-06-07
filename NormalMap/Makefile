@@ -17,7 +17,7 @@ endif
 
 CXXFLAGS = $(CFLAGS)
 
-#include Makefile-objs
+include Makefile-objs
 
 
 CFLAGS   := $(addprefix -I,$(INCDIR)) $(CFLAGS)
