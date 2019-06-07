@@ -207,7 +207,7 @@ int GetNormalFromSpr(int sprite)
 	int id=-1;
 	while (n < 100)
 	{
-		if (NormalMaps[n].sprite!=NULL && NormalMaps[n].sprite==sprite)
+		if (NormalMaps[n].sprite!=0 && NormalMaps[n].sprite==sprite)
 		{
 			id=n;
 		}
